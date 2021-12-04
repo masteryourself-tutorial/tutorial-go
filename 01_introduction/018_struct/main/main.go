@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 )
 
-func main()  {
+func main() {
 	fmt.Printf("\n==================== 分隔符: demo1 ====================\n")
 	demo1()
 	fmt.Printf("\n==================== 分隔符: demo2 ====================\n")
