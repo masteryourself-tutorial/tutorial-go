@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main()  {
+func main() {
 
 	modifyPointer()
 
@@ -31,7 +31,7 @@ func modifyPointer() {
 }
 
 func modifyValue() {
-		// 修改前
+	// 修改前
 	var num int32 = 9527
 	var ptr *int32 = &num
 
@@ -42,9 +42,9 @@ func modifyValue() {
 	// ptr 的内存地址不变, 但值发生了变化, 因为重新指向了
 	// num 的内存地址和值均不变
 	var num2 int32 = 10
-	ptr = &num2;
+	ptr = &num2
 
-	// 修改后	
+	// 修改后
 	fmt.Printf("修改后 num 的内存地址是 %v, 值是 %v \n", &num, num)
 	fmt.Printf("修改后 ptr 的内存地址是 %v, 值是 %v \n", &ptr, *ptr)
 }

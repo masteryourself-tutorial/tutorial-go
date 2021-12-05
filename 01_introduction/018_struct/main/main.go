@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 )
 
 func main() {
@@ -24,9 +24,9 @@ func main() {
 
 // 创建一个结构体
 type Student struct {
-	Id int32
+	Id   int32
 	Name string
-	Age int8
+	Age  int8
 }
 
 // 创建方式一, 在内存中是连续分布的
@@ -71,15 +71,15 @@ func demo4() {
 }
 
 // 创建方式四: 结构体指针 &
-func demo5()  {
+func demo5() {
 	// 也可以这样定义: var student *Student = &Student{1, "擎天柱", 88}
 	var student *Student = &Student{}
 	student.Name = "擎天柱~"
-	fmt.Printf("student = %v \n", *student)	
+	fmt.Printf("student = %v \n", *student)
 }
 
 // 使用指针修改
-func demo6()  {
+func demo6() {
 	var student1 Student
 	student1.Name = "阿大"
 	// 通过指针修改会影响 student1
@@ -91,7 +91,7 @@ func demo6()  {
 
 // struct tag 功能, 可以用来做反射处理
 type Teacher struct {
-	Id int32 `json:"id"`
+	Id   int32  `json:"id"`
 	Name string `json:"name"`
 }
 

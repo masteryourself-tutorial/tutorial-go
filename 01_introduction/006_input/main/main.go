@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main()  {
+func main() {
 
 	var name string
 	var age int32
@@ -18,5 +18,5 @@ func main()  {
 	fmt.Scanf("%d %f %t", &age, &salary, &isPass)
 
 	fmt.Printf("员工信息: 姓名 %v, 年龄 %v, 工资 %v, 是否通过考试 %v", name, age, salary, isPass)
-	
+
 }

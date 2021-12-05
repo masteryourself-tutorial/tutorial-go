@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main()  {
+func main() {
 	fmt.Printf("\n==================== 分隔符: demo1 ====================\n")
 	demo1()
 	fmt.Printf("\n==================== 分隔符: demo2 ====================\n")
@@ -24,17 +24,17 @@ func main()  {
 }
 
 // 定义方式一: 使用数组定义切片
-func demo1()  {
-	var arr [5]int = [5]int {1, 2, 3, 4, 5}
+func demo1() {
+	var arr [5]int = [5]int{1, 2, 3, 4, 5}
 	// 从数组下标[1,3), 左闭右开, 所以为 [2, 3]
 	var slice = arr[1:3]
 	fmt.Printf("slice 元素内容是 %v, 元素个数是 %v, 容量是 %v\n", slice, len(slice), cap(slice))
 }
 
 // 切片是引用类型
-func demo2()  {
-	var arr [5]int = [5]int {1, 2, 3, 4, 5}
-	var slice = arr[1: 3]
+func demo2() {
+	var arr [5]int = [5]int{1, 2, 3, 4, 5}
+	var slice = arr[1:3]
 	fmt.Printf("修改前: arr 数组是 %v \n", arr)
 	fmt.Printf("修改前: slice 切片是 %v \n", slice)
 	slice[1] = 111
@@ -44,7 +44,7 @@ func demo2()  {
 }
 
 // 定义方式二: 使用 make 定义切片
-func demo3()  {
+func demo3() {
 	var slice []string = make([]string, 3, 10)
 	slice[0] = "秦始皇"
 	slice[1] = "牛顿"
@@ -53,13 +53,13 @@ func demo3()  {
 }
 
 // 定义方式三: 使用数组方式定义切片
-func demo4()  {
+func demo4() {
 	var slice []string = []string{"秦始皇", "牛顿", "三体"}
 	fmt.Printf("slice 元素内容是 %v, 元素个数是 %v, 容量是 %v\n", slice, len(slice), cap(slice))
 }
 
 // 切片的遍历
-func demo5()  {
+func demo5() {
 	var slice []string = []string{"秦始皇", "牛顿", "三体"}
 	for i := 0; i < len(slice); i++ {
 		fmt.Printf("遍历 slice 元素 = %v \n", slice[i])
@@ -70,7 +70,7 @@ func demo5()  {
 }
 
 // 内置函数 append
-func demo6()  {
+func demo6() {
 	var slice1 []string = []string{"秦始皇", "牛顿", "面壁者"}
 	fmt.Printf("slice1 元素内容是 %v, 元素个数是 %v, 容量是 %v\n", slice1, len(slice1), cap(slice1))
 	// append 本质是底层数组扩容, 如果数组扩容不够(超过了切片的 cap), 则需要重新开辟一块内存存放扩容数据
@@ -88,7 +88,7 @@ func demo6()  {
 }
 
 // 内置函数 copy
-func demo7()  {
+func demo7() {
 	var slice1 []int32 = []int32{1, 2, 3, 4, 5}
 	var slice2 []int32 = make([]int32, 10, 10)
 	// 将 slice1 值 copy 到 slice2 中
@@ -98,7 +98,7 @@ func demo7()  {
 }
 
 // string 和 slice
-func demo8()  {
+func demo8() {
 	str := "masteryourself"
 	slice := str[10:]
 	fmt.Printf("提取字符串 %v \n", slice)

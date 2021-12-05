@@ -13,7 +13,7 @@ func main() {
 
 // 定义一个结构体 Person
 type Person struct {
-	Id int
+	Id   int
 	Name string
 }
 
@@ -31,14 +31,14 @@ func (person *Person) method2() {
 
 // 调用方法和调用函数机制非常类似, 只不过调用方法会把当前变量本身也传递到方法中去, 类比 Java 中的 this
 // 如果变量是值类型, 则进行值拷贝, 如果是引用类型, 则进行地址拷贝
-func demo1()  {
+func demo1() {
 	person := Person{1, "亚古兽"}
 	person.method1()
 }
 
 // 调用方法和调用函数机制非常类似, 只不过调用方法会把当前变量本身也传递到方法中去, 类比 Java 中的 this
 // 如果变量是值类型, 则进行值拷贝, 如果是引用类型, 则进行地址拷贝
-func demo2()  {
+func demo2() {
 	person := Person{2, "加鲁鲁兽"}
 	// 理论上应该这样调用才正确, go 语言中为了方便使用, 可以直接这样写
 	// (&person).method2()

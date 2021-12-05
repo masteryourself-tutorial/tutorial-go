@@ -1,11 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"errors"
+	"fmt"
 )
 
-func main()  {
+func main() {
 	test()
 	fmt.Println("test 之后的代码")
 
@@ -19,7 +19,7 @@ func main()  {
 	fmt.Println("test2 之后的代码")
 }
 
-func test()  {
+func test() {
 	// 使用 defer + recover 捕获异常
 	defer func() {
 		err := recover()
@@ -36,7 +36,7 @@ func test()  {
 func test2(name string) (err error) {
 	if name == "error" {
 		return errors.New("入参不正确")
-	}else {
+	} else {
 		return nil
 	}
 }

@@ -1,10 +1,10 @@
 package main
 
-import(
+import (
 	"fmt"
 )
 
-func main()  {
+func main() {
 
 	demo1()
 
@@ -17,24 +17,24 @@ func main()  {
 	demo3()
 }
 
-func demo1()  {
+func demo1() {
 	sum := 0
 	for i := 1; i <= 100; i++ {
-		if i % 9 ==0 {
+		if i%9 == 0 {
 			fmt.Println("能被 9 整除", i)
-			sum +=i
+			sum += i
 		}
 	}
 	fmt.Printf("1~100 能被 9 整除个数之和是 %v \n", sum)
 }
 
-func demo2()  {
+func demo2() {
 	for i := 0; i <= 6; i++ {
-		fmt.Printf("%v + %v = %v \n", i, 6 - i, 6)
+		fmt.Printf("%v + %v = %v \n", i, 6-i, 6)
 	}
 }
 
-func demo3()  {
+func demo3() {
 	count := 1
 	for {
 		fmt.Println("hello world")
