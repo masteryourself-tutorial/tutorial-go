@@ -22,12 +22,13 @@ func openFileWithBuf() {
 	f, err := os.Open("/Users/ruanrenzhao/go_project/tutorial-go/README.md")
 	if err != nil {
 		fmt.Println("文件打开失败", err)
+		return
 	}
 	// 延时退出
 	defer func(f *os.File) {
 		err := f.Close()
 		if err != nil {
-			fmt.Println("文件读取失败", err)
+			fmt.Println("文件关闭失败", err)
 		}
 	}(f)
 	// 使用 bufio 读取内容, 带缓冲区的, 默认是 4096 字节
