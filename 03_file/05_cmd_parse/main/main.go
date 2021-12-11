@@ -31,6 +31,8 @@ func parseByFlag() {
 	flag.StringVar(&pwd, "p", "root", "密码")
 	flag.StringVar(&host, "h", "host", "host 地址")
 	flag.IntVar(&port, "P", 3306, "端口号")
+	// 调用解析方法
+	flag.Parse()
 	fmt.Printf("user = %v, pwd = %v, host = %v, port = %v",
 		user, pwd, host, port)
 }
