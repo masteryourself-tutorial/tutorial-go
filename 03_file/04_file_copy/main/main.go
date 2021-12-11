@@ -34,11 +34,23 @@ func ioCopy() {
 		fmt.Println("源文件打开失败", err)
 		return
 	}
+	defer func(sourceFile *os.File) {
+		err := sourceFile.Close()
+		if err != nil {
+			fmt.Println("文件关闭失败", err)
+		}
+	}(sourceFile)
 	destFile, err := os.OpenFile("03_file/04_file_copy/doc/dest/风景.jpeg", os.O_WRONLY|os.O_CREATE, 0666)
 	if err != nil {
 		fmt.Println("目标文件打开失败", err)
 		return
 	}
+	defer func(destFile *os.File) {
+		err := destFile.Close()
+		if err != nil {
+			fmt.Println("文件关闭失败", err)
+		}
+	}(destFile)
 	res, err := io.Copy(destFile, sourceFile)
 	if err != nil {
 		fmt.Println("文件 copy 失败")
