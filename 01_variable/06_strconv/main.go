@@ -15,7 +15,7 @@ func main() {
 	str = strconv.FormatInt(int64(v1), 10)
 	fmt.Printf("str 值是 %v, 类型是 %T \n", str, str)
 
-	// 第二个参数表示格式, 第三个参数表示尾数部分精度, 第四个参数表示来源 float64
+	// 第二个参数表示格式, 第三个参数表示尾数部分精度, 第四个参数表示来源是 float64
 	str = strconv.FormatFloat(v2, 'f', 10, 64)
 	fmt.Printf("str 值是 %v, 类型是 %T \n", str, str)
 
