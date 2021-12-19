@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"tutorial.masteryourself.pers/tutorial_go/01_go-core/03_func/06_init/model"
+	"go-core/03_func/06_init/model"
 )
 
 func init() {
