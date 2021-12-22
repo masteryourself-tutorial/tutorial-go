@@ -9,17 +9,14 @@ import (
 )
 
 func main() {
-	// 使用带缓冲区的 buff 读取内容
-	fmt.Printf("\n==================== 分隔符: openFileWithBuf ====================\n")
 	openFileWithBuf()
-	// 使用 ioutil 一次性读取内容
-	fmt.Printf("\n==================== 分隔符: openFileOnce ====================\n")
 	openFileOnce()
 }
 
+// 使用带 buff 的缓冲区读取
 func openFileWithBuf() {
 	// 打开文件
-	f, err := os.Open("/Users/ruanrenzhao/go_project/tutorial-go/README.md")
+	f, err := os.Open("/Users/ruanrenzhao/go_project/tutorial-go/01_go-core/08_file/doc/file.txt")
 	if err != nil {
 		fmt.Println("文件打开失败", err)
 		return
@@ -33,21 +30,25 @@ func openFileWithBuf() {
 	}(f)
 	// 使用 bufio 读取内容, 带缓冲区的, 默认是 4096 字节
 	reader := bufio.NewReader(f)
+	buf := make([]byte, 4096)
 	// 打印内容
 	for {
-		if content, err := reader.ReadString('\n'); err != io.EOF {
-			fmt.Print("读取内容 》》》", content)
-		} else {
-			fmt.Println("文件读完")
-			break
+		n, err := reader.Read(buf)
+		if err != nil {
+			//遇到任何错误立即返回，并忽略 EOF 错误信息
+			if err == io.EOF {
+				return
+			}
+			fmt.Println("文件读取失败", err)
 		}
+		fmt.Println("读取内容:", string(buf[:n]))
 	}
 }
 
 // 一次性打开文件, 适用于文件内容比较小的场景
 func openFileOnce() {
 	// 不需要打开文件, 也不需要关闭文件, 函数已经封装好了
-	content, err := ioutil.ReadFile("/Users/ruanrenzhao/go_project/tutorial-go/README.md")
+	content, err := ioutil.ReadFile("/Users/ruanrenzhao/go_project/tutorial-go/01_go-core/08_file/doc/file.txt")
 	if err != nil {
 		fmt.Println("打开文件失败", err)
 	}

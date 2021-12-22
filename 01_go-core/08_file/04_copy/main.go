@@ -8,15 +8,14 @@ import (
 )
 
 func main() {
-	fmt.Printf("\n==================== 分隔符: copyReadAndWrite ====================\n")
 	copyReadAndWrite()
-	fmt.Printf("\n==================== 分隔符: ioCopy ====================\n")
 	ioCopy()
 }
 
+// 读取到 buffer 中再将 buffer 写入到文件里
 func copyReadAndWrite() {
-	sourceFilePath := "03_file/04_file_copy/doc/source/hello.txt"
-	destFilePath := "03_file/04_file_copy/doc/dest/hello.txt"
+	sourceFilePath := "/Users/ruanrenzhao/go_project/tutorial-go/01_go-core/08_file/doc/file.txt"
+	destFilePath := "/Users/ruanrenzhao/go_project/tutorial-go/01_go-core/08_file/doc/file_copy.txt"
 	data, err := ioutil.ReadFile(sourceFilePath)
 	if err != nil {
 		fmt.Println("文件读取失败", err)
@@ -29,7 +28,7 @@ func copyReadAndWrite() {
 }
 
 func ioCopy() {
-	sourceFile, err := os.Open("03_file/04_file_copy/doc/source/树叶.jpeg")
+	sourceFile, err := os.Open("/Users/ruanrenzhao/go_project/tutorial-go/01_go-core/08_file/doc/树叶.jpeg")
 	if err != nil {
 		fmt.Println("源文件打开失败", err)
 		return
@@ -40,7 +39,7 @@ func ioCopy() {
 			fmt.Println("文件关闭失败", err)
 		}
 	}(sourceFile)
-	destFile, err := os.OpenFile("03_file/04_file_copy/doc/dest/树叶.jpeg", os.O_WRONLY|os.O_CREATE, 0666)
+	destFile, err := os.OpenFile("/Users/ruanrenzhao/go_project/tutorial-go/01_go-core/08_file/doc/树叶_copy.jpeg", os.O_WRONLY|os.O_CREATE, 0666)
 	if err != nil {
 		fmt.Println("目标文件打开失败", err)
 		return
