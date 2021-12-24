@@ -4,9 +4,7 @@ import "fmt"
 
 // 管道可以看做成队列, FIFO
 func main() {
-	fmt.Printf("\n==================== 分隔符: channelDemo ====================\n")
 	channelDemo()
-	fmt.Printf("\n==================== 分隔符: channelLoop ====================\n")
 	channelLoop()
 }
 
