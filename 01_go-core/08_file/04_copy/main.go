@@ -27,6 +27,7 @@ func copyReadAndWrite() {
 	}
 }
 
+// 使用 io.Copy() 工具类
 func ioCopy() {
 	sourceFile, err := os.Open("/Users/ruanrenzhao/go_project/tutorial-go/01_go-core/08_file/doc/树叶.jpeg")
 	if err != nil {
