@@ -1,4 +1,4 @@
-package model
+package main
 
 import (
 	"encoding/json"
@@ -12,7 +12,7 @@ type Hero struct {
 	Skill []string `json:"skill"`
 }
 
-var fileName = "/Users/ruanrenzhao/go_project/tutorial-go/04_test/doc/json.txt"
+var fileName = "/Users/ruanrenzhao/go_project/tutorial-go/01_go-core/11_test/doc/json.txt"
 
 func (h *Hero) Store() {
 	// 序列化成 heroJson 字符串
