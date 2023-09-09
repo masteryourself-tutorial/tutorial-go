@@ -10,7 +10,14 @@ import (
 
 func Router() *gin.Engine {
 	engine := gin.Default()
+	// swagger
 	engine.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-	engine.GET("/user/list", controller.GetUserList)
+	// user
+	engine.
+		GET("/user", controller.SelectUser).
+		POST("/user", controller.CreateUser).
+		PUT("/user", controller.UpdateUser).
+		DELETE("/user", controller.DeleteUser).
+		GET("/user/list", controller.UserList)
 	return engine
 }

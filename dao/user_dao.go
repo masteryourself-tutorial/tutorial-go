@@ -3,15 +3,32 @@ package dao
 import (
 	"chat/model"
 	"chat/utils"
-	"fmt"
 )
 
-func GetUserList() []*model.User {
+func SelectUser(id uint) (user model.User) {
 	db := utils.GetDb()
-	var data = make([]*model.User, 10)
+	db.First(&user, "id = ?", id)
+	return user
+}
+
+func CreateUser(user model.User) {
+	db := utils.GetDb()
+	db.Create(&user)
+}
+
+func UpdateUser(user model.User) {
+	db := utils.GetDb()
+	db.Updates(&user)
+}
+
+func DeleteUser(user model.User) {
+	db := utils.GetDb()
+	db.Delete(&user)
+}
+
+func GetUserList() []model.User {
+	db := utils.GetDb()
+	var data = make([]model.User, 10)
 	db.Find(&data)
-	for _, v := range data {
-		fmt.Println(v)
-	}
 	return data
 }
