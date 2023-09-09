@@ -1,0 +1,11 @@
+info:
+  contact: {}
+paths:
+  /user/list:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - 获取用户列表
+swagger: "2.0"

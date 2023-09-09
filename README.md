@@ -1,2 +1,1 @@
-# tutorial-go
-Go 学习教程
+使用 Golang 开发的聊天室项目
